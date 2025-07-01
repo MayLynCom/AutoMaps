@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit import switch_page
 import pandas as pd
 import re                                                                                                                           #GPT
 import os                                                                                                                           #GPT
@@ -16,11 +17,10 @@ def senha_valida(senha):
 
 # Função para checar se e-mail já existe no csv
 def email_existe(email):
-    if not os.path.exists("usuarios.csv"):
-        df = pd.DataFrame(columns=["usuario", "senha"])
-        df.to_csv("usuarios.csv", index=False)
     df = pd.read_csv("usuarios.csv")
     return email in df["usuario"].values
+
+
 
 # Função para salvar o usuário novo
 def salvar_usuario(email, senha):
@@ -55,6 +55,6 @@ if st.button("Registrar"):
         st.error("E-mail já cadastrado!")
     # Salva o usuário se tudo ok
     else:
-        salvar_usuario(email, senha)
+        salvar_usuario(email, senha) #?????????????????????????????????????????????????????????????
         st.success("Usuário cadastrado com sucesso! Agora faça login.")
-
+        switch_page("Home.py")
