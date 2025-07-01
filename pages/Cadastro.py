@@ -33,7 +33,7 @@ def salvar_usuario(email, senha):
 st.set_page_config(page_title="Cadastro", layout="centered")
 st.title("📝 Cadastro de Novo Usuário")
 
-email = st.text_input("E-mail (será seu login)")
+email = st.text_input("E-mail (será seu login)").lower()
 senha = st.text_input("Senha (mín. 8 caracteres e pelo menos 1 número)", type="password")
 confirmar_senha = st.text_input("Confirme sua senha", type="password")
 

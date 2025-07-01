@@ -20,7 +20,7 @@ def login_valido(usuario, senha):
 st.set_page_config(page_title="Login", layout="centered")
 st.title("🔐 Login de Usuário")
 
-usuario = st.text_input("Usuário")  # Campo usuário
+usuario = st.text_input("E-mail").lower()  # Campo usuário
 senha = st.text_input("Senha", type="password")  # Campo senha
 
 
